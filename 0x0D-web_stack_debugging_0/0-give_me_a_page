@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-# This script fixes the apache server
-# page containing Hello Holberton
-sudo service apache2 start
+# fixing issues arrised from using docker
+# make the apache server return Hello Holberton when querying the root
 
+sudo apt-get update -y
+sudo apt-get install -y apache2
+sudo /etc/int.d/apache2 start
+echo "Hello Holberton" | sudo tee -a /var/www/html/index.html
+sudo /etc/init.d/apache2 restart
